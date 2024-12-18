@@ -7,3 +7,9 @@
 ```bash
 docker-compose up -d
 ```
+
+## Reconstruccion de datos
+
+```bash
+http://localhost:3000/api/v2/seed
+```
