@@ -1,26 +1,24 @@
-import { Injectable } from '@nestjs/common';
-import { CreateBasicReportDto } from './dto/create-basic-report.dto';
-import { UpdateBasicReportDto } from './dto/update-basic-report.dto';
+import { Injectable, OnModuleInit } from '@nestjs/common';
+import PdfPrinter from 'pdfmake'
+import { PrismaClient } from '@prisma/client'
+
+
+const  font = {
+  Roboto: {
+    normal: 'fonts/Roboto-Regular.ttf',
+    bold: 'fonts/Roboto-Medium.ttf',
+    italics: 'fonts/Roboto-Italic.ttf',
+    bolditalics: 'fonts/Roboto-MediumItalic.ttf'
+  }
+};
+
 
 @Injectable()
-export class BasicReportsService {
-  create(createBasicReportDto: CreateBasicReportDto) {
-    return 'This action adds a new basicReport';
+export class BasicReportsService extends PrismaClient implements OnModuleInit {
+  async onModuleInit() {
+    await this.$connect()
   }
-
-  findAll() {
-    return `This action returns all basicReports`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} basicReport`;
-  }
-
-  update(id: number, updateBasicReportDto: UpdateBasicReportDto) {
-    return `This action updates a #${id} basicReport`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} basicReport`;
+  async hello() {
+    
   }
 }
