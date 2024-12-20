@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import {TypeOrmModule} from '@nestjs/typeorm'
 import { MessagesWsModule } from './messages-ws/messages-ws.module';
+import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [
@@ -17,7 +18,8 @@ import { MessagesWsModule } from './messages-ws/messages-ws.module';
       //!No produccion
       synchronize:true
     }),
-    MessagesWsModule
+    ProductsModule,
+    MessagesWsModule,
   ]
 })
 export class AppModule {}
